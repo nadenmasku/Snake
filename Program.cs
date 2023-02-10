@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using static System.Console;
 using static Walls;
-
+using static FoodFactory;
 
 class Game
 {
     static readonly int x = 80;
-    static readonly int y = 26;
-    static Walls walls;
+    static readonly int y = 27;
+    static Walls? walls;
+    static FoodFactory? foodFactory;
 
     static void Main()
     {
-        walls = new Walls(x, y, '#');
         SetWindowSize(x + 1, y + 1);
         SetBufferSize(x + 1, y + 1);
         CursorVisible = false;
+        walls = new Walls(x, y, '#');
+        foodFactory = new FoodFactory(x, y, '@');
+        foodFactory.CreateFood();
     }
 }
 
